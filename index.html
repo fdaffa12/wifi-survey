@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> REGISTRASI </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+    <body>
+    <div class="container">
+    <div class="title"style="text-align: center;">FORM REGISTRASI</div>
+    <div class="content">
+    <div class="user-details">
+        <div class="input-box">
+          <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbzc2yAUxEhh2IuXu1iNKi2ejnPWi4qXkK41_iKDFlMR48hwj8ggOjc2qtIvUXHGXUTi/exec" method="POST">
+          <input type="hidden" value="" name="fileContent" id="fileContent">
+          <input type="hidden" value="" name="filename" id="filename">
+          <div class="user-details">
+          <div class="input-box">
+             <label for="date" class="form-label">Date</label>
+              <input type="date" id="date" name="date" class="form-control" required>
+          </div>
+          <div class="input-box">
+             <label for="time" class="form-label">Time</label>
+              <input type="time" id="time" name="time" class="form-control" required>
+          </div>
+        <div class="input-box">
+            <label for="room_or_public_area" class="form-label">Jenis Kelamin</label>
+            <select type="room_or_public_area" id="room_or_public_area" name="room_or_public_area" class="form-control" placeholder="Pilih Room/Public " required>
+                <option>--Pilih Room/Public--</option>
+                <option>Public</option>
+                <option>Rooms</option>
+            </select>
+            </div>
+         <div class="input-box">
+            <label for="room_number_or_area_name" class="form-label">Room Number or Area Name</label>
+              <input type="text" id="room_number_or_area_name" name="room_number_or_area_name" class="form-control" placeholder="Masukan Room Number or Area Name" required>
+            </div>
+        <div class="input-box">
+            <label for="client_connected" class="form-label">Client Connected</label>
+              <input type="text" id="client_connected" name="client_connected" class="form-control" placeholder="Masukan Jumlah Client" required>
+            </div>
+        <div class="input-box">
+            <label for="rssi_value_dbm" class="form-label">RSSI Value (-dbm)</label>
+              <input type="text" id="rssi_value_dbm" name="rssi_value_dbm" class="form-control" required>
+            </div>
+            <div class="input-box">
+            <label for="snr_value_db" class="form-label">SNR Value (db)</label>
+              <input type="text" id="snr_value_db" name="snr_value_db" class="form-control" required>
+            </div> 
+            </form>
+        <div class="input-box">
+            <label for="speed" class="form-label">Speed</label>
+              <input type="text" id="speed" name="speed" class="form-control" required>
+            </div> 
+            </form>
+        <div class="input-box">
+            <label for="file" class="form-label"> File</label>
+            <input required id="attach" name="attach" type="file"/>
+            </div>
+        <div class="button"style="width: 100%;">
+            <input type="button" value="KIRIM DATA" onclick="UploadFile();" />
+            </div>
+            <div>
+        <a href="https://docs.google.com/spreadsheets/d/1rLHFc1qRKiSs83PtxL6unMHOfkdqUGRPSuOEZwMrVTw/edit#gid=0" class="btn btn-primary"target="_blank">VIEW DATA</a>
+       <button class="btn btn-danger" type="reset">RESET FORM</button>
+           </div>
+    <script>
+    function UploadFile() {
+    var reader = new FileReader();
+    var file = document.getElementById('attach').files[0];
+    reader.onload = function(){
+    document.getElementById('fileContent').value=reader.result;
+    document.getElementById('filename').value=file.name;
+    document.getElementById('uploadForm').submit();
+    }
+    reader.readAsDataURL(file);
+    }
+    </script>
+</body>
+</html>
